@@ -57,6 +57,7 @@ $(document).ready(function () {
 });
 
 
+
   //if (($('#name').val().length === 0) || ($('#text').val().length === 0)) {
   //  alert('닉네임 또는 방명록을 작성해주세요.');
   //} else {
