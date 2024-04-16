@@ -1,4 +1,3 @@
-
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
 import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
@@ -51,6 +50,7 @@ docs.forEach((doc) => {
 });
 
 
+
 $(document).on("click", ".delposting", async function () {
   const postId = $(this).data("id"); 
 
@@ -68,18 +68,17 @@ $(document).on("click", ".delposting", async function () {
 });
 
 
-// $("#savebtn").click(function () {
-$(".btn").click(function (e) {
-  console.log(e.target)
-  $('#팀원상세정보').toggle();
 
+
+$(document).ready(function () {
+  $(".btn").click(function () {
+    $(this).closest('.팀원명').next('.팀원상세정보').toggle();
+  });
 });
+
 
 
   //if (($('#name').val().length === 0) || ($('#text').val().length === 0)) {
   //  alert('닉네임 또는 방명록을 작성해주세요.');
   //} else {
   //}
-
-
-
