@@ -90,15 +90,26 @@
     justify-content: center;
     }
     
+    .팀원명박스 {
+        width: 600px;
+        margin: 5px auto 5px auto;
+      }
+   
       .팀원명 {
         background-color: transparent;
-        padding: 2px;
+        padding: 3px;
         border-radius: 5px;
         width: 600px;
         border: 1px solid #000;
         margin-bottom: 10px;
+        display: flex;
       }
-    
+   
+      .상세정보버튼 {
+        margin-left: 10px;
+      }
+   
+   
       .팀원상세정보 {
         display: none;
         background-color: transparent;
@@ -106,8 +117,28 @@
         border-radius: 5px;
         width: 600px;
         border: 1px solid #000;
-        margin-bottom: 10px;
+        margin-bottom: 5px;
+        align-items: center;
       }
+   
+      .팀원상세정보내용 {
+        display: flex;
+        align-items: center;
+      }
+   
+      .팀원상세정보텍스트 {
+       flex: 1;
+       display: flex;
+       flex-direction: column;
+       align-items: flex-start;
+     }
+     
+     .팀원상세정보 img {
+       order: -1;
+       width: 100px;
+       margin-right: 10px;
+     }
+      
     
       .textid {
         width: 1000px;
