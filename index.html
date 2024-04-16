@@ -63,33 +63,25 @@
     <div class="textid">
       <h1 class="title">방명록 남기기</h1>
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="닉네임" aria-label="Recipient's username"
+        <input type="text" class="form-control" placeholder="닉네임" id="name" aria-label="Recipient's username"
           aria-describedby="button-addon2">
       </div>
       <div class="input-group mb-3">
-        <input type="text" class="form-control" placeholder="내용을 입력하세요" aria-label="Recipient's username"
+        <input type="text" class="form-control" placeholder="내용을 입력하세요" id="text" aria-label="Recipient's username"
           aria-describedby="button-addon2">
-        <button class="btn btn-outline-dark" type="button" id="button-addon2">저장하기</button>
+        <button onclick="maketextcard()" class="btn btn-outline-dark" type="button" id="button-addon2">저장하기</button>
       </div>
     </div>
-    <div class="secondbox">
-      <div class="card border-dark mb-3" style="max-width: 1000rem;">
+    <div  class="secondbox" id="cardbox">
+      <div id="cardbody" class="card border-dark mb-3" style="max-width: 1000rem;">
         <div class="card-body">
-          <h5 class="card-title">Dark card title</h5>
-          <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
-            content.</p>
-          <button type="button" class="btn btn-outline-dark">삭제</button><button type="button"
-            class="btn btn-outline-dark">수정</button>
+          <h5 class="card-title">test</h5>
+          <p class="card-text"><span id="cardtextt">test</span></p>
+          <button onclick="deletebtn()" type="button" class="btn btn-outline-dark">삭제</button><button id="changebtn" type="button"
+          class="btn btn-outline-dark">수정</button>
         </div>
       </div>
     </div>
 </body>
 
 </html>
-
-
-    $("#savebtn").click(async function () {
-        $('#팀원상세정보').toggle();
-
-      })
-  </style>
