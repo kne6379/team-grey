@@ -1,101 +1,134 @@
-   
-.textid {
-width: 1000px;
-margin: 20px auto 20px auto;
+   .textid {
+     width: 1000px;
+     margin: 20px auto 20px auto;
 
-border: 1px solid black;
-padding: 10px;
-border-radius: 5px;
-padding-top: 25px;
-}
+     border: 1px solid black;
+     padding: 10px;
+     border-radius: 5px;
+     padding-top: 25px;
+   }
 
-.secondbox {
-width: 1000px;
-margin: 20px auto 20px auto;
+   .secondbox {
+     width: 1000px;
+     margin: 20px auto 20px auto;
 
-border: 1px solid black;
-padding: 10px;
-border-radius: 5px;
-padding-top: 25px;
-}
+     border: 1px solid black;
+     padding: 10px;
+     border-radius: 5px;
+     padding-top: 25px;
+   }
 
-.card-body {
-width: 900px;
-}
+   .card-body {
+     width: 900px;
+   }
 
-.secondboxbtn {
-padding: 50px;
-}
+   .secondboxbtn {
+     padding: 50px;
+   }
 
-.card-body>button {
-margin-right: 5px;
-}
+   .card-body>button {
+     margin-right: 5px;
+   }
 
-.title {
-margin-bottom: 25px;
+   .title {
+     margin-bottom: 25px;
 
-display: flex;
-flex-direction: row;
-align-items: center;
-justify-content: center;
-}
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: center;
+   }
 
-  .팀원명 {
-    background-color: transparent;
-    padding: 2px;
-    border-radius: 5px;
-    width: 600px;
-    border: 1px solid #000;
-    margin-bottom: 10px;
-  }
 
-  .팀원상세정보 {
-    display: none;
-    background-color: transparent;
-    padding: 10px;
-    border-radius: 5px;
-    width: 600px;
-    border: 1px solid #000;
-    margin-bottom: 10px;
-  }
 
-  .textid {
-    width: 1000px;
-    margin: 20px auto 20px auto;
+   .팀원명박스 {
+     width: 600px;
+     margin: 5px auto 5px auto;
+   }
 
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 5px;
-    padding-top: 25px;
-  }
+   .팀원명 {
+     background-color: transparent;
+     padding: 3px;
+     border-radius: 5px;
+     width: 600px;
+     border: 1px solid #000;
+     margin-bottom: 10px;
+     display: flex;
+   }
 
-  .secondbox {
-    width: 1000px;
-    margin: 20px auto 20px auto;
+   .상세정보버튼 {
+     margin-left: 10px;
+   }
 
-    border: 1px solid black;
-    padding: 10px;
-    border-radius: 5px;
-    padding-top: 25px;
-  }
 
-  .card-body {
-    width: 900px;
-  }
+   .팀원상세정보 {
+     display: none;
+     background-color: transparent;
+     padding: 10px;
+     border-radius: 5px;
+     width: 600px;
+     border: 1px solid #000;
+     margin-bottom: 5px;
+     align-items: center;
+   }
 
-  .secondboxbtn {
-    padding: 50px;
-  }
+   .팀원상세정보내용 {
+     display: flex;
+     align-items: center;
+   }
 
-  .card-body>button {
-    margin-right: 5px;
-  }
-
-  .title {
-    margin-bottom: 25px;
-
+   .팀원상세정보텍스트 {
+    flex: 1;
     display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
+    align-items: flex-start;
   }
+  
+  .팀원상세정보 img {
+    order: -1;
+    width: 100px;
+    margin-right: 10px;
+  }
+  
+
+
+   .textid {
+     width: 1000px;
+     margin: 20px auto 20px auto;
+
+     border: 1px solid black;
+     padding: 10px;
+     border-radius: 5px;
+     padding-top: 25px;
+   }
+
+   .secondbox {
+     width: 1000px;
+     margin: 20px auto 20px auto;
+
+     border: 1px solid black;
+     padding: 10px;
+     border-radius: 5px;
+     padding-top: 25px;
+   }
+
+   .card-body {
+     width: 900px;
+   }
+
+   .secondboxbtn {
+     padding: 50px;
+   }
+
+   .card-body>button {
+     margin-right: 5px;
+   }
+
+   .title {
+     margin-bottom: 25px;
+
+     display: flex;
+     flex-direction: row;
+     align-items: center;
+     justify-content: center;
+   }
