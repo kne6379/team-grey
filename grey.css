@@ -11,43 +11,99 @@
   align-items: center;
   justify-content: center;
 
-  background-color: green;
-  background-position: center;
-  background-size: cover;
-}   
-.main{
-  height: 700px;
-  width: 1000px;
+    background-color: green;
+    background-position: center;
+    background-size: cover;
+  }   
+  .main{
+    height: 1000px;
+    width: 1000px;
 
   margin: 30px auto 20px auto;
   padding: 20px;
   color: black;
 
-  border: 1px solid black;
-  border-radius: 5px;
-  
-  
-  background-position: center;
-  background-size: cover;
-  position: relative;
+    border: 1px solid black;
+    border-radius: 5px;
+    display:flex;
+    flex-direction: column;
+    position: relative;
+  }
+  .main h2{
+    text-align: center;
+  }
+  .info{
+    background-color: green;
+    width:270px;
+    height: 400px;
+    position: absolute;
+    top:60px;
+    left:50px;
+  }
+  .goals{
+    background-color: red;
+    width:270px;
+    height: 400px;
+    position: absolute;
+    top: 60px;
+    left: 50%;
+    transform: translate(-50%);
+  }
+  .rules{
+    background-color: black;
+    width:270px;
+    height: 400px;
+    position: absolute;
+    top:60px;
+    right:50px;
+  }
+  .card__noeul{
+    background-color: green;
+    width:200px;
+    position: absolute;
+    left:50px;
+    bottom:50px;
+  }
+  .card__junseong{
+    background-color: green;
+    width:200px;
+    position: absolute;
+    left:200px;
+    bottom: 300px;
+  }
+  .card__mindo{
+    background-color: green;
+    width:200px;
+    position: absolute;
+    right:200px;
+    bottom: 300px;
+  }
+  .card__jooun{
+    background-color: green;
+    width:200px;
+    position: absolute;
+    left:40%;
+    bottom: 50px;
+  }
+  .card__soowon{
+    background-color: green;
+    width:200px;
+    position: absolute;
+    right:50px;
+    bottom: 50px;
+  }
+  .card__header img {
+    border-radius: 10px;
+    box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
+    width: 200px;
+    position: relative;
 }
-.cardBox{
-  bottom: 20px;
-  height: 500px;
-  flex-direction: row;
-  border: 5px dotted lightslategray;
-  position: Absolute;
-}
-.card__header img {
-  border-radius: 10px;
-  box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
-  width: 200px;
-}
-.card__contents h3 {
-  font-size: 20px;
-  line-height: 1.4;
-  margin-bottom: 10px;
-  text-align: center;
+.card__header figcaption {
+    font-size: 20px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    position: relative;
+    text-align: center;
 }
 .textid {
   width: 1000px;
