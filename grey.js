@@ -16,6 +16,27 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+$(document).on("click", ".btnr", async function() {
+  let cardBody = $(this).closest('.card-body');
+  let name = cardBody.find('.card-title').text().trim();
+  let text = cardBody.find('.card-text').text().trim();
+  $('#이름쓰').val(name);
+  $('#수정쓰').val(text);
+  $('#모달창').show();
+
+  $('.close').click(function() {
+    $('#모달창').hide();
+  });
+  
+  $(document).on('click', function(e) {
+    if ($(e.target).hasClass('modal')) {
+      $('#모달창').hide();
+    }
+  });
+});
+
+
+
 $("#maketextcard").click(async function () {
   let name = $("#name").val();
   let text = $("#text").val();
