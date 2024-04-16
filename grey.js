@@ -1,10 +1,5 @@
-
 $(document).ready(function () {
-  // $("#savebtn").click(function () {
-    $(".btn").click(function (e) {
-      console.log(e.target)
-    $('#팀원상세정보').toggle();
-    
+  $(".timbtn").click(function () {
+    $(this).closest('.팀원명').next('.팀원상세정보').toggle();
   });
 });
-
