@@ -180,3 +180,38 @@
       align-items: center;
       justify-content: center;
     }
+
+    .modal {
+      position: fixed;
+      z-index: 1;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: auto;
+      background-color: transparent;
+    }
+    
+    .modal-content {
+      background-color: white;
+      margin: 500px auto;
+      max-height: 80vh;
+      overflow-y: auto;
+      padding: 20px;
+      border: 1px solid black;
+      width: 1050px;
+    }
+    
+    .close {
+      color: black;
+      float: right;
+      font-size: 30px;
+      font-weight: bold;
+    }
+    
+    .close:hover,
+    .close:focus {
+      color: pink;
+      text-decoration: none;
+      cursor: pointer;
+    }
