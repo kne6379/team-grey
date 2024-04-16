@@ -16,22 +16,7 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-$(document).on("click", ".edit-btn", async function () {
-  let newName = $('#name').val();
-  let newText = $('#수정쓰').val();
-  let docId = $(this).closest('.modal-content').data('docId');
-  try {
-    await updateDoc(doc(db, "TeamProject", docId), {
-      name: newName,
-      text: newText
-    });
-    $('#모달창').hide();
-  } catch (error) {
-    console.error("Error updating document: ", error);
-  }
-});
-
-$(document).on("click", ".btnr", async function () {
+$(document).on("click", ".btnr", async function() {
   let cardBody = $(this).closest('.card-body');
   let name = cardBody.find('.card-title').text().trim();
   let text = cardBody.find('.card-text').text().trim();
@@ -39,11 +24,11 @@ $(document).on("click", ".btnr", async function () {
   $('#수정쓰').val(text);
   $('#모달창').show();
 
-  $('.close').click(function () {
+  $('.close').click(function() {
     $('#모달창').hide();
   });
-
-  $(document).on('click', function (e) {
+  
+  $(document).on('click', function(e) {
     if ($(e.target).hasClass('modal')) {
       $('#모달창').hide();
     }
@@ -61,14 +46,13 @@ $("#maketextcard").click(async function () {
   };
   await addDoc(collection(db, "TeamProject"), doc);
   window.location.reload();
-
 });
 
 let docs = await getDocs(collection(db, "TeamProject"));
+
 docs.forEach((doc) => {
   let row = doc.data();
   console.log(row);
-
   let name_row = row["name"];
   let text_row = row["text"];
   let postId = doc.id;
@@ -82,10 +66,9 @@ docs.forEach((doc) => {
         <button type="button" class="btn btn-outline-dark">수정</button>
       </div>
     </div>`
-  $("#cardbox").append(temp_html);
+    $("#cardbox").append(temp_html);
+
 });
-
-
 
 $(document).on("click", ".delposting", async function () {
   const postId = $(this).data("id");
@@ -111,10 +94,3 @@ $(document).ready(function () {
     $(this).closest('.팀원명').next('.팀원상세정보').toggle();
   });
 });
-
-
-
-//if (($('#name').val().length === 0) || ($('#text').val().length === 0)) {
-//  alert('닉네임 또는 방명록을 작성해주세요.');
-//} else {
-//}
