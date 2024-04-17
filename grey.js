@@ -180,7 +180,7 @@ $(document).ready(function () {
 });
 
 
-window.addEventListener('scroll', function() {
+$(window).scroll(function() {
   let upButton = document.querySelector('.up');
   if (window.scrollY > 200) { 
     upButton.style.opacity = '1'; 
