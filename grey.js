@@ -27,7 +27,6 @@ $(document).on("click", ".btnr", async function () {
   $('#modal').show();
 });
 
-
 $(document).on("click", ".btnr", function () {
   let dataid = $(this).data('id');
   console.log(dataid);
@@ -164,3 +163,14 @@ $(document).ready(function () {
     // $(this).closest('.팀원명').next('.팀원상세정보').toggle();
   });
 });
+
+
+$(window).scroll(function() {
+  let upButton = document.querySelector('.up');
+  if (window.scrollY > 200) { 
+    upButton.style.opacity = '1'; 
+  } else {
+    upButton.style.opacity = '0';
+  }
+});
+
