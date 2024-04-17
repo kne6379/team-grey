@@ -27,11 +27,6 @@ $(document).on("click", ".btnr", async function () {
   $('#modal').show();
 });
 
-// 		if (querySnapshot.empty) {
-// 			document
-// 				.getElementById('modify-comment-pwd-input')
-// 				.classList.add('wrong');
-// 		}
 
 $(document).on("click", ".btnr", function () {
   let dataid = $(this).data('id');
@@ -62,6 +57,7 @@ $(document).on('click', function (e) {
     $('#modal').hide();
   }
 });
+
 
 
 $("#maketextcard").click(async function () {
@@ -186,4 +182,3 @@ $(document).ready(function () {
     $(this).closest('.팀원명').next('.팀원상세정보').toggle();
   });
 });
-

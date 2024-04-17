@@ -257,7 +257,7 @@ body{
 }
 
 .modal {
-  display: none;
+  display: flex;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -265,7 +265,7 @@ body{
   width: 100%;
   height: 100%;
   overflow: auto;
-  background-color: transparent;
+  background-color: white;
 }
 
 .modal-content {
