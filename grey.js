@@ -64,12 +64,16 @@ $("#maketextcard").click(async function () {
   let name = $("#name").val();
   let text = $("#text").val();
 
-  let doc = {
-    "name": name,
-    "text": text
-  };
-  await addDoc(collection(db, "TeamProject"), doc);
-  window.location.reload();
+  if (($('#name').val().length === 0) || ($('#text').val().length === 0)){
+    alert('닉네임 또는 방명록을 작성해주세요.');
+  } else {
+    let doc = {
+      "name": name,
+      "text": text
+    };
+    await addDoc(collection(db, "TeamProject"), doc);
+    window.location.reload();
+  }
 });
 
 let docs = await getDocs(collection(db, "TeamProject"));
