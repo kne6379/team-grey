@@ -16,45 +16,55 @@
 
 <body>
   <div class="header">
-    <h1>GREY</h1>
+    <h1>안녕하세요<br>그레이팀입니다 :)</h1>
+
+
   </div>
   <div class="main__box">
     <div class="main">
-      <h2>우리팀입니다</h2>
-      <div class="info"></div>
-      <div class="goals"></div>
-      <div class="rules"></div>
-      <article class="card__noeul">
-        <figure class="card__header">
-          <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
-          <figcaption>김노을</figcaption>
-        </figure>
-      </article>
-      <article class="card__junseong">
-        <figure class="card__header">
-          <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
-          <figcaption>이준성</figcaption>
-        </figure>
-      </article>
-      <article class="card__mindo">
-        <figure class="card__header">
-          <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
-          <figcaption>민도</figcaption>
-        </figure>
-      </article>
-      <article class="card__jooun">
-        <figure class="card__header">
-          <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
-          <figcaption>주언</figcaption>
-        </figure>
-      </article>
-      <article class="card__soowon">
-        <figure class="card__header">
-          <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
-          <figcaption>수원</figcaption>
-        </figure>
-      </article>
+      <div class="infoBox">
+        <div class="info"></div>
+        <div class="goals"></div>
+        <div class="rules"></div>
+      </div>
+      <div class="cardBox">
+        <div class="cardone">
+          <article class="card__noeul">
+            <figure class="card__header">
+              <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
+              <figcaption>노을</figcaption>
+            </figure>
+          </article>
+          <article class="card__junseong">
+            <figure class="card__header">
+              <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
+              <figcaption>준성</figcaption>
+            </figure>
+          </article>
+          <article class="card__mindo">
+            <figure class="card__header">
+              <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
+              <figcaption>민도</figcaption>
+            </figure>
+          </article>
+        </div>
+        <div class="cardtwo">
+          <article class="card__jooun">
+            <figure class="card__header">
+              <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
+              <figcaption>주언</figcaption>
+            </figure>
+          </article>
+          <article class="card__soowon">
+            <figure class="card__header">
+              <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
+              <figcaption>수원</figcaption>
+            </figure>
+          </article>
+        </div>
+      </div>
     </div>
+  </div>
   </div>
   <div>
     <div class="팀원명박스">
@@ -118,7 +128,7 @@
       <div class="팀원명">
         <p>전수원</p>
         <div class="btn-container">
-          <button id="savebtn" type="button" class="btntim btn btn-outline-dark 상세정보버튼">상세 정보</button>
+          <button id="savebtn" type="button" class="btn btn-outline-dark 상세정보버튼">상세 정보</button>
         </div>
       </div>
       <div id="팀원상세정보" class="팀원상세정보">
@@ -171,22 +181,27 @@
   </div>
 
 
-  <div id="모달창" class="modal">
+  <div id="modal" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2>수정</h2>
-      <input type="이름쓰" id="name" class="form-control mb-3" placeholder="닉네임">
-      <textarea id="수정쓰" class="form-control mb-3" placeholder="수정할 내용을 입력하세요"></textarea>
-      <button type="button" id="update" class="btn-outline-dark edit-btn">수정하기</button>
+      <input type="text" id="names" class="form-control mb-3" placeholder="닉네임"></input>
+      <textarea id="change" class="form-control mb-3" placeholder="수정할 내용을 입력하세요"></textarea>
+      <button type="button" class="btnr btn btn-outline-dark edit-btn" data-id="">수정하기</button>
 
+      <div id="모달창" class="modal">
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <h2>수정</h2>
+          <input type="이름쓰" id="name" class="form-control mb-3" placeholder="닉네임">
+          <textarea id="수정쓰" class="form-control mb-3" placeholder="수정할 내용을 입력하세요"></textarea>
+          <button type="button" id="update" class="btn-outline-dark edit-btn">수정하기</button>
+
+        </div>
+
+      </div>
     </div>
-
-  </div>
-
-  <script type="module" src="grey.js"></script>
-
-
-
+    <script type="module" src="grey.js"></script>
 
 </body>
 
