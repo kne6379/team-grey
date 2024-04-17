@@ -172,6 +172,7 @@ $(document).ready(function () {
   });
 });
 
+
 window.addEventListener('scroll', function() {
   let upButton = document.querySelector('.up');
   if (window.scrollY > 200) { 
