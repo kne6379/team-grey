@@ -24,18 +24,6 @@ body{
     margin-left:240px ;
     text-align: left;
   }
-  /* .main{
-    height: 1100px;
-    background-color: white;
-     margin: 30px auto 20px auto;
-     padding: 20px;
-    color: black;
-
-    border-radius: 5px;
-    display:flex;
-    flex-direction: column;
-    position: relative;
-  } */
   .infoBox{
     background-color: white;
     position: relative;
