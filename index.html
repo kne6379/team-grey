@@ -9,6 +9,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
     integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
   <link href="grey.css" rel="stylesheet" type="text/css" />
+
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js">
   </script>
 </head>
@@ -17,41 +18,43 @@
   <div class="header">
     <h1>GREY</h1>
   </div>
-  <div class="main">
-    <h2>우리팀</h2>
-    <div class="info"></div>
-    <div class="goals"></div>
-    <div class="rules"></div>
-    <article class="card__noeul">
-      <figure class="card__header">
-        <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
-        <figcaption>김노을</figcaption>
-      </figure>
-    </article>
-    <article class="card__junseong">
-      <figure class="card__header">
-        <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
-        <figcaption>이준성</figcaption>
-      </figure>
-    </article>
-    <article class="card__mindo">
-      <figure class="card__header">
-        <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
-        <figcaption>민도</figcaption>
-      </figure>
-    </article>
-    <article class="card__jooun">
-      <figure class="card__header">
-        <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
-        <figcaption>주언</figcaption>
-      </figure>
-    </article>
-    <article class="card__soowon">
-      <figure class="card__header">
-        <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
-        <figcaption>수원</figcaption>
-      </figure>
-    </article>
+  <div class="main__box">
+    <div class="main">
+      <h2>우리팀입니다</h2>
+      <div class="info"></div>
+      <div class="goals"></div>
+      <div class="rules"></div>
+      <article class="card__noeul">
+        <figure class="card__header">
+          <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
+          <figcaption>김노을</figcaption>
+        </figure>
+      </article>
+      <article class="card__junseong">
+        <figure class="card__header">
+          <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
+          <figcaption>이준성</figcaption>
+        </figure>
+      </article>
+      <article class="card__mindo">
+        <figure class="card__header">
+          <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
+          <figcaption>민도</figcaption>
+        </figure>
+      </article>
+      <article class="card__jooun">
+        <figure class="card__header">
+          <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
+          <figcaption>주언</figcaption>
+        </figure>
+      </article>
+      <article class="card__soowon">
+        <figure class="card__header">
+          <img src="https://health.chosun.com/site/data/img_dir/2023/07/17/2023071701753_0.jpg" alt="...">
+          <figcaption>수원</figcaption>
+        </figure>
+      </article>
+    </div>
   </div>
   <div>
     <div class="팀원명박스">
@@ -167,22 +170,22 @@
   <div id="cardbox" class="secondbox">
   </div>
 
-  
+
   <div id="모달창" class="modal">
     <div class="modal-content">
       <span class="close">&times;</span>
       <h2>수정</h2>
       <input type="이름쓰" id="name" class="form-control mb-3" placeholder="닉네임">
       <textarea id="수정쓰" class="form-control mb-3" placeholder="수정할 내용을 입력하세요"></textarea>
-      <button type="button" class="btn btn-outline-dark edit-btn">수정하기</button>
+      <button type="button" id="update" class="btn-outline-dark edit-btn">수정하기</button>
 
     </div>
 
   </div>
 
   <script type="module" src="grey.js"></script>
-  
- 
+
+
 
 
 </body>
