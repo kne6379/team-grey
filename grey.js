@@ -121,3 +121,12 @@ $(document).ready(function () {
     $(this).closest('.팀원명').next('.팀원상세정보').toggle();
   });
 });
+
+window.addEventListener('scroll', function() {
+  let upButton = document.querySelector('.up');
+  if (window.scrollY > 200) { 
+    upButton.style.opacity = '1'; 
+  } else {
+    upButton.style.opacity = '0';
+  }
+});
