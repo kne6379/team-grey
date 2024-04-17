@@ -63,6 +63,7 @@
     position: absolute;
     left:50px;
     bottom:50px;
+    cursor: pointer;
   }
   .card__junseong{
     background-color: green;
@@ -70,6 +71,7 @@
     position: absolute;
     left:200px;
     bottom: 300px;
+    cursor: pointer;
   }
   .card__mindo{
     background-color: green;
@@ -77,6 +79,7 @@
     position: absolute;
     right:200px;
     bottom: 300px;
+    cursor: pointer;
   }
   .card__jooun{
     background-color: green;
@@ -84,6 +87,7 @@
     position: absolute;
     left:40%;
     bottom: 50px;
+    cursor: pointer;
   }
   .card__soowon{
     background-color: green;
@@ -91,6 +95,7 @@
     position: absolute;
     right:50px;
     bottom: 50px;
+    cursor: pointer;
   }
   .card__header img {
     border-radius: 10px;
