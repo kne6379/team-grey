@@ -159,7 +159,7 @@ $("#img5").click(async function () {
 
 $("#img4").click(async function () {
   $('#team5').toggle();
-  document.getElementById("img4").scrollIntoView({
+  document.getElementById("team5").scrollIntoView({
     behavior: 'smooth', // 부드러운 스크롤
     block: 'start',     // 뷰포트의 상단에 위치
     inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
