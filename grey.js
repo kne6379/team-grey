@@ -29,23 +29,23 @@ $(document).on("click", ".btnr", async function () {
 
 
 $(document).on("click", ".btnr", function () {
-  let dataid = $(this).data('id'); 
+  let dataid = $(this).data('id');
   console.log(dataid);
-  $(".edit-btn").click(async function () {
-  let newName = $('#names').val();
-  let newText = $('#change').val();
-  
-  try {
-    await updateDoc(doc(db, "TeamProject", dataid), {
-      "name": newName,
-      "text": newText
-    });
-    window.location.reload();
+  $(".edit").click(async function () {
+    let newName = $('#names').val();
+    let newText = $('#change').val();
 
-  } catch (error) {
-    console.error("Error updating document: ", error);
-  }
-});
+    try {
+      await updateDoc(doc(db, "TeamProject", dataid), {
+        "name": newName,
+        "text": newText
+      });
+      window.location.reload();
+
+    } catch (error) {
+      console.error("Error updating document: ", error);
+    }
+  });
 });
 
 $('.close').click(function () {
@@ -64,15 +64,21 @@ $("#maketextcard").click(async function () {
   let name = $("#name").val();
   let text = $("#text").val();
 
-  if (($('#name').val().length === 0) || ($('#text').val().length === 0)){
+  if (($('#name').val().length === 0) || ($('#text').val().length === 0)) {
     alert('닉네임 또는 방명록을 작성해주세요.');
   } else {
-    let doc = {
-      "name": name,
-      "text": text
-    };
-    await addDoc(collection(db, "TeamProject"), doc);
-    window.location.reload();
+    let text_pw = prompt("비밀번호를 입력해주세요.");
+    if (text_pw.length === 0) {
+      alert('비밀번호를 입력해주세요.');
+    } else {
+      let doc = {
+        "name": name,
+        "text": text,
+        "text_pw": text_pw
+      }
+      await addDoc(collection(db, "TeamProject"), doc);
+      window.location.reload();
+    }
   }
 });
 
@@ -83,17 +89,18 @@ docs.forEach((doc) => {
   console.log(row);
   let name_row = row["name"];
   let text_row = row["text"];
+  let text_pw_ans = row["text_pw"];
+  console.log(text_pw_ans)
   let postId = doc.id;
+
 
   let temp_html = `
     <div class="card border-dark mb-3" style="max-width: 1000rem;">
       <div class="card-body">
         <h5 class="card-title">${name_row}</h5>
         <p class="card-text">${text_row}</p>
-        <button type="button" class="btn btn-outline-dark delposting" data-id="${postId}">삭제</button>
+        <button type="button" class="btn btn-outline-dark delposting" data-id="${postId}" data-pw="${text_pw_ans}">삭제</button>
         <button type="button" class="btnr btn btn-outline-dark"  data-id="${postId}">수정</button>
-
-
       </div>
     </div>`
   $("#cardbox").append(temp_html);
@@ -102,18 +109,25 @@ docs.forEach((doc) => {
 
 $(document).on("click", ".delposting", async function () {
   const postId = $(this).data("id");
-
+  const text_pw_postId = $(this).data("pw");
+  console.log(postId);
+  console.log(text_pw_postId);
   const ok = window.confirm("삭제하시겠습니까?");
   if (ok) {
-    try {
-      await deleteDoc(doc(db, "TeamProject", postId));
-      $(this).closest(".card").remove();
-      alert("게시물이 성공적으로 삭제되었습니다.");
-    } catch (error) {
+    let text_pw_ans = prompt("비밀번호를 입력해주세요.");
+    console.log(text_pw_ans);
+    if (text_pw_ans == text_pw_postId){
+      try {
+        await deleteDoc(doc(db, "TeamProject", postId));
+        $(this).closest(".card").remove();
+        alert("게시물이 성공적으로 삭제되었습니다.");
+      }
+      catch (error) {
       console.error("게시물 삭제 중 오류 발생:", error);
       alert("게시물 삭제 중 오류가 발생했습니다. 다시 시도해주세요.");
-    }
-  }
+    }}else {
+      alert("비밀번호를 확인해주세요.");
+    }}
 });
 
 
