@@ -1,5 +1,5 @@
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-app.js";
-import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
+import { getFirestore, collection, addDoc, getDocs, doc, deleteDoc, updateDoc } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -16,24 +16,48 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-$(document).on("click", ".btnr", async function() {
+
+$(document).on("click", ".btnr", async function () {
+  const postId = $(this).data("id");
   let cardBody = $(this).closest('.card-body');
   let name = cardBody.find('.card-title').text().trim();
   let text = cardBody.find('.card-text').text().trim();
-  $('#이름쓰').val(name);
-  $('#수정쓰').val(text);
-  $('#모달창').show();
-
-  $('.close').click(function() {
-    $('#모달창').hide();
-  });
-  
-  $(document).on('click', function(e) {
-    if ($(e.target).hasClass('modal')) {
-      $('#모달창').hide();
-    }
-  });
+  $('#names').val(name);
+  $('#change').val(text);
+  $('#modal').show();
 });
+
+
+$(document).on("click", ".btnr", function () {
+  let dataid = $(this).data('id'); 
+  console.log(dataid);
+  $(".edit-btn").click(async function () {
+  let newName = $('#names').val();
+  let newText = $('#change').val();
+  
+  try {
+    await updateDoc(doc(db, "TeamProject", dataid), {
+      "name": newName,
+      "text": newText
+    });
+    window.location.reload();
+
+  } catch (error) {
+    console.error("Error updating document: ", error);
+  }
+});
+});
+
+$('.close').click(function () {
+  $('#modal').hide();
+});
+
+$(document).on('click', function (e) {
+  if ($(e.target).hasClass('modal')) {
+    $('#modal').hide();
+  }
+});
+
 
 
 $("#maketextcard").click(async function () {
@@ -49,8 +73,8 @@ $("#maketextcard").click(async function () {
 });
 
 let docs = await getDocs(collection(db, "TeamProject"));
-
 docs.forEach((doc) => {
+  console.log(doc.id)
   let row = doc.data();
   console.log(row);
   let name_row = row["name"];
@@ -63,10 +87,12 @@ docs.forEach((doc) => {
         <h5 class="card-title">${name_row}</h5>
         <p class="card-text">${text_row}</p>
         <button type="button" class="btn btn-outline-dark delposting" data-id="${postId}">삭제</button>
-        <button type="button" class="btn btn-outline-dark">수정</button>
+        <button type="button" class="btnr btn btn-outline-dark"  data-id="${postId}">수정</button>
+
+
       </div>
     </div>`
-    $("#cardbox").append(temp_html);
+  $("#cardbox").append(temp_html);
 
 });
 
@@ -85,8 +111,6 @@ $(document).on("click", ".delposting", async function () {
     }
   }
 });
-
-
 
 
 $(document).ready(function () {
