@@ -118,54 +118,39 @@ $(document).on("click", ".delposting", async function () {
 
 
 $("#img1").click(async function () {
-  $('#team1').toggle();
-  document.getElementById("team1").scrollIntoView({
-    behavior: 'smooth', // 부드러운 스크롤
-    block: 'start',     // 뷰포트의 상단에 위치
-    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
-  });
-
+  toggleTeam('#team1');
 });
 
 $("#img3").click(async function () {
-  $('#team2').toggle();
-  document.getElementById("team2").scrollIntoView({
-    behavior: 'smooth', // 부드러운 스크롤
-    block: 'start',     // 뷰포트의 상단에 위치
-    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
-  });
-
+  toggleTeam('#team2');
 });
 
 $("#img2").click(async function () {
-  $('#team3').toggle();
-  document.getElementById("team3").scrollIntoView({
-    behavior: 'smooth', // 부드러운 스크롤
-    block: 'start',     // 뷰포트의 상단에 위치
-    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
-  });
-
+  toggleTeam('#team3');
 });
 
 $("#img5").click(async function () {
-  $('#team4').toggle();
-  document.getElementById("team4").scrollIntoView({
-    behavior: 'smooth', // 부드러운 스크롤
-    block: 'start',     // 뷰포트의 상단에 위치
-    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
-  });
-
+  toggleTeam('#team4');
 });
 
 $("#img4").click(async function () {
-  $('#team5').toggle();
-  document.getElementById("team5").scrollIntoView({
-    behavior: 'smooth', // 부드러운 스크롤 
-    block: 'start',     // 뷰포트의 상단에 위치
-    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
-  });
-
+  toggleTeam('#team5');
 });
+
+function toggleTeam(teamId) {
+  // 클릭된 팀을 제외한 모든 팀의 토글 닫기
+  $('[id^=team]').not(teamId).hide();
+  
+  // 클릭된 팀의 토글 열기
+  $(teamId).toggle();
+  
+  // 스크롤
+  document.querySelector(teamId).scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+    inline: 'nearest'
+  });
+}
 
 $(document).ready(function () {
   $(".btn-container").click(function () {
