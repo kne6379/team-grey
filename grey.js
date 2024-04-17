@@ -108,10 +108,10 @@ $(document).on("click", ".delposting", async function () {
     try {
       await deleteDoc(doc(db, "TeamProject", postId));
       $(this).closest(".card").remove();
-      alert("게시물이 성공적으로 삭제되었습니다.");
+      alert("방명록이 성공적으로 삭제되었습니다.");
     } catch (error) {
-      console.error("게시물 삭제 중 오류 발생:", error);
-      alert("게시물 삭제 중 오류가 발생했습니다. 다시 시도해주세요.");
+      console.error("방명록 삭제 중 오류 발생:", error);
+      alert("방명록 삭제 중 오류가 발생했습니다. 다시 시도해주세요.");
     }
   }
 });
@@ -168,7 +168,7 @@ $("#img4").click(async function () {
 });
 
 $(document).ready(function () {
-  $(".btn").click(function () {
+  $(".btn-container").click(function () {
     $(this).closest('.팀원명').next('.팀원상세정보').toggle();
   });
 });

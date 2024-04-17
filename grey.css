@@ -291,8 +291,12 @@
 }
 
 .팀원명박스 {
-  width: 600px;
+  width: 1000px;
   margin: 5px auto 5px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 아이템들을 세로 가운데 정렬 */
+  position: relative;
 }
 
 .팀원명 {
@@ -315,11 +319,16 @@
   background-color: transparent;
   padding: 10px;
   border-radius: 5px;
-  width: 600px;
   border: 1px solid #000;
   margin-bottom: 5px;
   align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
 }
+
+
 
 .팀원상세정보내용 {
   display: flex;
