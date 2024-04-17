@@ -90,7 +90,6 @@ docs.forEach((doc) => {
   let name_row = row["name"];
   let text_row = row["text"];
   let text_pw_ans = row["text_pw"];
-  console.log(text_pw_ans)
   let postId = doc.id;
 
 
@@ -110,12 +109,9 @@ docs.forEach((doc) => {
 $(document).on("click", ".delposting", async function () {
   const postId = $(this).data("id");
   const text_pw_postId = $(this).data("pw");
-  console.log(postId);
-  console.log(text_pw_postId);
   const ok = window.confirm("삭제하시겠습니까?");
   if (ok) {
     let text_pw_ans = prompt("비밀번호를 입력해주세요.");
-    console.log(text_pw_ans);
     if (text_pw_ans == text_pw_postId){
       try {
         await deleteDoc(doc(db, "TeamProject", postId));
@@ -131,8 +127,58 @@ $(document).on("click", ".delposting", async function () {
 });
 
 
+$("#img1").click(async function () {
+  $('#team1').toggle();
+  document.getElementById("team1").scrollIntoView({
+    behavior: 'smooth', // 부드러운 스크롤
+    block: 'start',     // 뷰포트의 상단에 위치
+    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
+  });
+  
+});
+
+$("#img3").click(async function () {
+  $('#team2').toggle();
+  document.getElementById("team2").scrollIntoView({
+    behavior: 'smooth', // 부드러운 스크롤
+    block: 'start',     // 뷰포트의 상단에 위치
+    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
+  });
+  
+});
+
+$("#img2").click(async function () {
+  $('#team3').toggle();
+  document.getElementById("team3").scrollIntoView({
+    behavior: 'smooth', // 부드러운 스크롤
+    block: 'start',     // 뷰포트의 상단에 위치
+    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
+  });
+  
+});
+
+$("#img5").click(async function () {
+  $('#team4').toggle();
+  document.getElementById("team4").scrollIntoView({
+    behavior: 'smooth', // 부드러운 스크롤
+    block: 'start',     // 뷰포트의 상단에 위치
+    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
+  });
+  
+});
+
+$("#img4").click(async function () {
+  $('#team5').toggle();
+  document.getElementById("team5").scrollIntoView({
+    behavior: 'smooth', // 부드러운 스크롤
+    block: 'start',     // 뷰포트의 상단에 위치
+    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
+  });
+  
+});
+
 $(document).ready(function () {
-  $(".btn").click(function () {
+  $(".btn-container").click(function () {
     $(this).closest('.팀원명').next('.팀원상세정보').toggle();
   });
 });

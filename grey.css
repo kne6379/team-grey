@@ -36,6 +36,95 @@
 }
 
 .info {
+  background-color: green;
+  width: 270px;
+  height: 400px;
+  position: absolute;
+  top: 60px;
+  left: 50px;
+}
+
+.goals {
+  background-color: red;
+  width: 270px;
+  height: 400px;
+  position: absolute;
+  top: 60px;
+  left: 50%;
+  transform: translate(-50%);
+}
+
+.rules {
+  background-color: black;
+  width: 270px;
+  height: 400px;
+  position: absolute;
+  top: 60px;
+  right: 50px;
+}
+
+.card__noeul {
+  background-color: green;
+  width: 200px;
+  position: absolute;
+  left: 50px;
+  bottom: 50px;
+  cursor: pointer;
+}
+
+.card__junseong {
+  background-color: green;
+  width: 200px;
+  position: absolute;
+  left: 200px;
+  bottom: 300px;
+  cursor: pointer;
+}
+
+.card__mindo {
+  background-color: green;
+  width: 200px;
+  position: absolute;
+  right: 200px;
+  bottom: 300px;
+  cursor: pointer;
+}
+
+.card__jooun {
+  background-color: green;
+  width: 200px;
+  position: absolute;
+  left: 40%;
+  bottom: 50px;
+  cursor: pointer;
+}
+
+.card__soowon {
+  background-color: green;
+  width: 200px;
+  position: absolute;
+  right: 50px;
+  bottom: 50px;
+  cursor: pointer;
+}
+
+.card__header img {
+  border-radius: 10px;
+  box-shadow: 4px 4px 5px 0 rgba(0, 0, 0, 0.05);
+  width: 200px;
+  position: relative;
+  border: 1px solid black;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.main h2 {
+  text-align: center;
+}
+
+.info {
   border: 1px solid black;
   padding: 10px;
   border-radius: 5px;
@@ -202,8 +291,12 @@
 }
 
 .팀원명박스 {
-  width: 600px;
+  width: 1000px;
   margin: 5px auto 5px auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* 아이템들을 세로 가운데 정렬 */
+  position: relative;
 }
 
 .팀원명 {
@@ -226,11 +319,16 @@
   background-color: transparent;
   padding: 10px;
   border-radius: 5px;
-  width: 600px;
   border: 1px solid #000;
   margin-bottom: 5px;
   align-items: center;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
 }
+
+
 
 .팀원상세정보내용 {
   display: flex;
