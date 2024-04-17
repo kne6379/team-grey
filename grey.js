@@ -27,7 +27,6 @@ $(document).on("click", ".btnr", async function () {
   $('#modal').show();
 });
 
-
 $(document).on("click", ".btnr", function () {
   let dataid = $(this).data('id'); 
   console.log(dataid);
