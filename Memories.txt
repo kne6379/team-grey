@@ -9,13 +9,13 @@
 문제1. 개인 카드가 정상적으로 열리나, 다른 개인 카드를 열었을 때 이전 카드가 닫히지 않고 겹치는 문제가 발생
 해결방안 : 개인 카드를 클릭했을 때, 토글이 열림. 다른 개인 카드 클릭 시, 지금 누른 개인 카드를 제외하고 열려있는 토글을 닫음.
 
-          $(document).ready(function () {
-            $(".btn-container").click(function () {    //클릭이벤트
-              var $container = $(this).closest('.팀원명').next('.팀원상세정보');    //현재 클릭한 상세정보
-              $(".팀원상세정보").not($container).hide();     //현재 클릭한 상세정보를 제외하고 나머지 상세정보를 닫음
-              $container.toggle();    //현재 클릭한 상세정보 토글 오픈
-            });
-          });
+$(document).ready(function () {
+  $(".btn-container").click(function () {                               //클릭이벤트
+    var $container = $(this).closest('.팀원명').next('.팀원상세정보');    //현재 클릭한 상세정보
+    $(".팀원상세정보").not($container).hide();                           //현재 클릭한 상세정보를 제외하고 나머지 상세정보를 닫음
+    $container.toggle();                                                //현재 클릭한 상세정보 토글 오픈
+  });
+});
 
 
 문제2. 방명록 게시물 '수정' 버튼을 눌렀을때 데이터베이스에 저장된 cardboody의 id를 가져오기 못해 업데이트(모달창의 수정하기 버튼)의 기능이 실행되지 않음.
