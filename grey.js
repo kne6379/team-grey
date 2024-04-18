@@ -85,7 +85,7 @@ docs.forEach((doc) => {
   let postId = doc.id;
 
   let temp_html = `
-    <div class="card border-dark mb-3" style="max-width: 1000rem;">
+    <div class="card border-white mb-3" style="max-width: 1000rem;">
       <div class="card-body">
         <h5 class="card-title">${name_row}</h5>
         <p class="card-text">${text_row}</p>
