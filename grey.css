@@ -77,6 +77,9 @@ body {
   background-color: #eff2f8;
   padding-top: 60px;
 }
+.cardBox h3 {
+  text-align: center;
+}
 .cardone {
   display: flex;
   justify-content: center;
@@ -250,6 +253,8 @@ body {
   width: 150px;
   height: 150px;
   margin-right: 10px;
+  border: 1px dotted black;
+  border-radius: 10px;
 }
 
 .textid {
