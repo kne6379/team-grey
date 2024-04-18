@@ -7,6 +7,7 @@ import {
   doc,
   deleteDoc,
   updateDoc,
+  query, orderBy, serverTimestamp
 } from "https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore.js";
 
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -75,6 +76,7 @@ $("#maketextcard").click(async function () {
         name: name,
         text: text,
         text_pw: text_pw,
+        timestamp: serverTimestamp()
       };
       await addDoc(collection(db, "TeamProject"), doc);
       window.location.reload();
@@ -82,7 +84,7 @@ $("#maketextcard").click(async function () {
   }
 });
 
-let docs = await getDocs(collection(db, "TeamProject"));
+let docs = await getDocs(query(collection(db, "TeamProject"), orderBy("timestamp", "desc")));
 docs.forEach((doc) => {
   console.log(doc.id);
   let row = doc.data();
@@ -163,13 +165,9 @@ function toggleTeam(teamId) {
 $(document).ready(function () {
   $(".btn-container").click(function () {
     var $container = $(this).closest(".팀원명").next(".팀원상세정보");
-
-    // 모든 토글 닫음
     $(".팀원상세정보").not($container).hide();
 
-    // 현재 누른 토글 연다
     $container.toggle();
-    // $(this).closest('.팀원명').next('.팀원상세정보').toggle();
   });
 });
 
