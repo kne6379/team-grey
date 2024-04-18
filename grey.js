@@ -17,44 +17,40 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 
-$(document).on("click", ".btnr", async function () {
-  const postId = $(this).data("id");
-  let cardBody = $(this).closest('.card-body');
-  let name = cardBody.find('.card-title').text().trim();
-  let text = cardBody.find('.card-text').text().trim();
-  $('#names').val(name);
-  $('#change').val(text);
-  $('#modal').show();
-});
+$(document).on("click", "#aeditbtn", function () {
+  const dataid = $(this).data('id');
+  let text_pw_editId = $(this).data("pw");
+  let text_pw_editans = prompt("비밀번호를 입력해주세요.");
+  if (text_pw_editId == text_pw_editans){
+    let cardBody = $(this).closest('.card-body');
+    let name = cardBody.find('.card-title').text().trim();
+    let text = cardBody.find('.card-text').text().trim();
+    $('#names').val(name);
+    $('#change').val(text);
+    $('#modal').show();
 
-$(document).on("click", ".btnr", function () {
-  let dataid = $(this).data('id');
-  console.log(dataid);
-  $(".edit-btn").click(async function () {
-    let newName = $('#names').val();
-    let newText = $('#change').val();
-
-    try {
-      await updateDoc(doc(db, "TeamProject", dataid), {
-        "name": newName,
-        "text": newText
-      });
-      window.location.reload();
-
-    } catch (error) {
-      console.error("Error updating document: ", error);
-    }
-  });
-});
+    $("#editbtn").click(async function (){
+      let newName = $('#names').val();
+      let newText = $('#change').val();
+      try {
+        await updateDoc(doc(db, "TeamProject", dataid), {
+          "name": newName,
+          "text": newText
+        });
+        alert("게시물이 성공적으로 수정되었습니다.");
+        window.location.reload();
+      } catch (error) {
+        console.error("Error updating document: ", error);
+        alert("게시물 수정 중 오류가 발생했습니다. 다시 시도해주세요.");
+      }
+    });
+  } else {
+    alert("비밀번호를 확인해주세요.");
+  }
+})
 
 $('.close').click(function () {
   $('#modal').hide();
-});
-
-$(document).on('click', function (e) {
-  if ($(e.target).hasClass('modal')) {
-    $('#modal').hide();
-  }
 });
 
 
@@ -66,12 +62,18 @@ $("#maketextcard").click(async function () {
   if (($('#name').val().length === 0) || ($('#text').val().length === 0)) {
     alert('닉네임 또는 방명록을 작성해주세요.');
   } else {
-    let doc = {
-      "name": name,
-      "text": text
-    };
-    await addDoc(collection(db, "TeamProject"), doc);
-    window.location.reload();
+    let text_pw = prompt("비밀번호를 입력해주세요.");
+    if (text_pw.length === 0) {
+      alert('비밀번호를 입력해주세요.');
+    } else {
+      let doc = {
+        "name": name,
+        "text": text,
+        "text_pw": text_pw
+      }
+      await addDoc(collection(db, "TeamProject"), doc);
+      window.location.reload();
+    }
   }
 });
 
@@ -82,6 +84,7 @@ docs.forEach((doc) => {
   console.log(row);
   let name_row = row["name"];
   let text_row = row["text"];
+  let text_pw_ans = row["text_pw"];
   let postId = doc.id;
 
   let temp_html = `
@@ -89,10 +92,8 @@ docs.forEach((doc) => {
       <div class="card-body">
         <h5 class="card-title">${name_row}</h5>
         <p class="card-text">${text_row}</p>
-        <button type="button" class="btn btn-outline-dark delposting" data-id="${postId}">삭제</button>
-        <button type="button" class="btnr btn btn-outline-dark"  data-id="${postId}">수정</button>
-
-
+        <button type="button" class="btn btn-outline-dark delposting" data-id="${postId}" data-pw="${text_pw_ans}">삭제</button>
+        <button type="button" id="aeditbtn" class="btn btn-outline-dark"  data-id="${postId}" data-pw="${text_pw_ans}">수정</button>
       </div>
     </div>`
   $("#cardbox").append(temp_html);
@@ -101,70 +102,59 @@ docs.forEach((doc) => {
 
 $(document).on("click", ".delposting", async function () {
   const postId = $(this).data("id");
-
+  const text_pw_postId = $(this).data("pw");
   const ok = window.confirm("삭제하시겠습니까?");
   if (ok) {
-    try {
-      await deleteDoc(doc(db, "TeamProject", postId));
-      $(this).closest(".card").remove();
-      alert("방명록이 성공적으로 삭제되었습니다.");
-    } catch (error) {
-      console.error("방명록 삭제 중 오류 발생:", error);
-      alert("방명록 삭제 중 오류가 발생했습니다. 다시 시도해주세요.");
-    }
-  }
+    let text_pw_ans = prompt("비밀번호를 입력해주세요.");
+    if (text_pw_ans == text_pw_postId){
+      try {
+        await deleteDoc(doc(db, "TeamProject", postId));
+        $(this).closest(".card").remove();
+        alert("게시물이 성공적으로 삭제되었습니다.");
+      }
+      catch (error) {
+      console.error("게시물 삭제 중 오류 발생:", error);
+      alert("게시물 삭제 중 오류가 발생했습니다. 다시 시도해주세요.");
+    }}else {
+      alert("비밀번호를 확인해주세요.");
+    }}
 });
 
 
 $("#img1").click(async function () {
-  $('#team1').toggle();
-  document.getElementById("team1").scrollIntoView({
-    behavior: 'smooth', // 부드러운 스크롤
-    block: 'start',     // 뷰포트의 상단에 위치
-    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
-  });
-
+  toggleTeam('#team1');
 });
 
 $("#img3").click(async function () {
-  $('#team2').toggle();
-  document.getElementById("team2").scrollIntoView({
-    behavior: 'smooth', // 부드러운 스크롤
-    block: 'start',     // 뷰포트의 상단에 위치
-    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
-  });
-
+  toggleTeam('#team2');
 });
 
 $("#img2").click(async function () {
-  $('#team3').toggle();
-  document.getElementById("team3").scrollIntoView({
-    behavior: 'smooth', // 부드러운 스크롤
-    block: 'start',     // 뷰포트의 상단에 위치
-    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
-  });
-
+  toggleTeam('#team3');
 });
 
 $("#img5").click(async function () {
-  $('#team4').toggle();
-  document.getElementById("team4").scrollIntoView({
-    behavior: 'smooth', // 부드러운 스크롤
-    block: 'start',     // 뷰포트의 상단에 위치
-    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
-  });
-
+  toggleTeam('#team4');
 });
 
 $("#img4").click(async function () {
-  $('#team5').toggle();
-  document.getElementById("team5").scrollIntoView({
-    behavior: 'smooth', // 부드러운 스크롤 
-    block: 'start',     // 뷰포트의 상단에 위치
-    inline: 'nearest'   // 수평 정렬에서 가장 가까운 위치   
-  });
-
+  toggleTeam('#team5');
 });
+
+function toggleTeam(teamId) {
+  // 클릭된 팀을 제외한 모든 팀의 토글 닫기
+  $('[id^=team]').not(teamId).hide();
+  
+  // 클릭된 팀의 토글 열기
+  $(teamId).toggle();
+  
+  // 스크롤
+  document.querySelector(teamId).scrollIntoView({
+    behavior: 'smooth',
+    block: 'start',
+    inline: 'nearest'
+  });
+}
 
 $(document).ready(function () {
   $(".btn-container").click(function () {
