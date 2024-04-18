@@ -18,7 +18,37 @@
           });
 
 
-문제2. 
+문제2. 방명록 게시물 '수정' 버튼을 눌렀을때 데이터베이스에 저장된 cardboody의 id를 가져오기 못해 업데이트(모달창의 수정하기 버튼)의 기능이 실행되지 않음.
+해결방안 : 클릭된 수정 버튼의 data-ad 속성을 가져와서 postid 변수를 저장하여 연결된 데이터베이스의 문서를 업데이트하는것, updateDoc 함수를 사용해서 업데이트할 문서 지정후 업데이트할 내용을 전달
+
+$(document).on("click", ".btnr", async function () {
+  const postId = $(this).data("id");
+  let cardBody = $(this).closest('.card-body');
+  //클릭된 수정 버튼에서 부모 요소 중 card-body인 요소를 찾는다
+  let name = cardBody.find('.card-title').text().trim();
+  let text = cardBody.find('.card-text').text().trim();
+  $('#names').val(name);
+  $('#change').val(text);
+  $('#modal').show();
+});
+$(document).on("click", ".btnr", function () {
+  let dataid = $(this).data('id');
+  $(".edit-btn").click(async function () {
+    let newName = $('#names').val();
+    let newText = $('#change').val();
+    try {
+      await updateDoc(doc(db, "TeamProject", dataid), {
+        "name": newName,
+        "text": newText
+      });
+      window.location.reload();
+    } catch (error) {
+      console.error("Error updating document: ", error);
+    }
+  });
+});
+
+문제3. 
 해결방안 : 
 
 
