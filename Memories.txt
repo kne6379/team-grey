@@ -24,7 +24,6 @@
 $(document).on("click", ".btnr", async function () {
   const postId = $(this).data("id");
   let cardBody = $(this).closest('.card-body');
-  //클릭된 수정 버튼에서 부모 요소 중 card-body인 요소를 찾는다
   let name = cardBody.find('.card-title').text().trim();
   let text = cardBody.find('.card-text').text().trim();
   $('#names').val(name);
@@ -47,6 +46,7 @@ $(document).on("click", ".btnr", function () {
     }
   });
 });
+
 
 문제3. 
 해결방안 : 
